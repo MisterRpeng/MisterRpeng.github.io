@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="http://q5wlthigx.bkt.clouddn.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.jpg">
 <meta property="article:published_time" content="2020-02-24T14:35:00.000Z">
-<meta property="article:modified_time" content="2020-02-27T15:48:37.454Z">
+<meta property="article:modified_time" content="2020-02-28T16:41:30.002Z">
 <meta property="article:author" content="MisterR">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -151,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    15 minutes 读完 (大约 2209 个字)
+                    18 minutes 读完 (大约 2694 个字)
                 </span>
                 
                 
@@ -262,7 +262,25 @@
 </ul>
 <hr>
 <h4 id="ULT适用于解决逻辑并行性问题，-KLT适用于解决物理并行性问题，现实解决问题通常采用混合方式-Process"><a href="#ULT适用于解决逻辑并行性问题，-KLT适用于解决物理并行性问题，现实解决问题通常采用混合方式-Process" class="headerlink" title="ULT适用于解决逻辑并行性问题， KLT适用于解决物理并行性问题，现实解决问题通常采用混合方式(Process)"></a>ULT适用于解决逻辑并行性问题， KLT适用于解决物理并行性问题，现实解决问题通常采用混合方式(Process)</h4><hr>
-<p><img src="http://q5wlthigx.bkt.clouddn.com/%E7%BA%BF%E7%A8%8B%E6%B7%B7%E5%90%88%E5%BC%8F%E7%AD%96%E7%95%A5%E4%B8%8B%E7%9A%84%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81.jpg" alt="线程混合式策略下的线程状态"></p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E7%BA%BF%E7%A8%8B%E6%B7%B7%E5%90%88%E5%BC%8F%E7%AD%96%E7%95%A5%E4%B8%8B%E7%9A%84%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81.jpg" alt="线程混合式策略下的线程状态"></h2><h4 id="处理器调度层次：低级调度、中级调度、高级调度"><a href="#处理器调度层次：低级调度、中级调度、高级调度" class="headerlink" title="处理器调度层次：低级调度、中级调度、高级调度"></a>处理器调度层次：低级调度、中级调度、高级调度</h4><h2 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E5%A4%84%E7%90%86%E5%99%A8%E8%B0%83%E5%BA%A6%E5%B1%82%E6%AC%A1%E4%B8%8E%E5%85%B3%E9%94%AE%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2.jpg" alt="处理器调度层次与关键状态转换"></h2><h4 id="选择处理器调度算法的原则："><a href="#选择处理器调度算法的原则：" class="headerlink" title="选择处理器调度算法的原则："></a>选择处理器调度算法的原则：</h4><ul>
+<li>资源利用率：使得CPU或其他资源的使用率尽可能高且能够并行工作</li>
+<li>响应时间：使交互式用户的响应时间尽可能小，或尽快处理实时任务</li>
+<li>周转时间：提交给系统开始到执行完成获得结果为止的这段时间间隔称周转时间，应该使周转时间或平均周转时间尽可能短</li>
+<li>吞吐量：单位时间处理的进程数尽可能多</li>
+<li>公平性：确保每个用户每个进程获得合理的CPU份额或其他资源份额</li>
+</ul>
+<p>（响应比=等待时间/估计计算时间；优先数：使用的频率，高则大）</p>
+<h4 id="分级调度算法-多队列策略、反馈循环队列"><a href="#分级调度算法-多队列策略、反馈循环队列" class="headerlink" title="分级调度算法(多队列策略、反馈循环队列)"></a>分级调度算法(多队列策略、反馈循环队列)</h4><p>基本思想：</p>
+<blockquote>
+<ul>
+<li>建立多个不同优先级的就绪进程队列</li>
+<li>多个就绪进程队列间按照优先数调度</li>
+<li>高优先级就绪进程，分配的时间片短</li>
+<li>单个就绪进程队列中进程的优先数和时间片相同<br><img src="http://q5wlthigx.bkt.clouddn.com/%E5%88%86%E7%BA%A7%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95%E4%BE%8B%E5%AD%90.jpg" alt="分级调度算法例子"></li>
+</ul>
+</blockquote>
+<hr>
+<h4 id="彩票调度算法"><a href="#彩票调度算法" class="headerlink" title="彩票调度算法"></a>彩票调度算法</h4><p>基本思想：为进程发放针对系统各种资源(如CPU时间)的彩票；当调度程序需要作出决策时，随机选择一张彩票，持有该彩票的进程将获得系统资源，合作进程之间将进行彩票交换</p>
 
         </div>
         
