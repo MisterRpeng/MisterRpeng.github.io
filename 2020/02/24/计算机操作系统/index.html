@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="http://q5wlthigx.bkt.clouddn.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.jpg">
 <meta property="article:published_time" content="2020-02-24T14:35:00.000Z">
-<meta property="article:modified_time" content="2020-02-28T16:41:30.002Z">
+<meta property="article:modified_time" content="2020-03-02T15:19:39.541Z">
 <meta property="article:author" content="MisterR">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -151,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    18 minutes 读完 (大约 2694 个字)
+                    34 minutes 读完 (大约 5084 个字)
                 </span>
                 
                 
@@ -285,7 +285,91 @@
 </ul>
 </blockquote>
 <hr>
-<h4 id="彩票调度算法"><a href="#彩票调度算法" class="headerlink" title="彩票调度算法"></a>彩票调度算法</h4><p>基本思想：为进程发放针对系统各种资源(如CPU时间)的彩票；当调度程序需要作出决策时，随机选择一张彩票，持有该彩票的进程将获得系统资源，合作进程之间将进行彩票交换</p>
+<h4 id="彩票调度算法"><a href="#彩票调度算法" class="headerlink" title="彩票调度算法"></a>彩票调度算法</h4><h2 id="基本思想：为进程发放针对系统各种资源-如CPU时间-的彩票；当调度程序需要作出决策时，随机选择一张彩票，持有该彩票的进程将获得系统资源，合作进程之间将进行彩票交换"><a href="#基本思想：为进程发放针对系统各种资源-如CPU时间-的彩票；当调度程序需要作出决策时，随机选择一张彩票，持有该彩票的进程将获得系统资源，合作进程之间将进行彩票交换" class="headerlink" title="基本思想：为进程发放针对系统各种资源(如CPU时间)的彩票；当调度程序需要作出决策时，随机选择一张彩票，持有该彩票的进程将获得系统资源，合作进程之间将进行彩票交换"></a>基本思想：为进程发放针对系统各种资源(如CPU时间)的彩票；当调度程序需要作出决策时，随机选择一张彩票，持有该彩票的进程将获得系统资源，合作进程之间将进行彩票交换</h2><h4 id="主存储器的复用"><a href="#主存储器的复用" class="headerlink" title="主存储器的复用"></a>主存储器的复用</h4><ul>
+<li>按照分区复用：<blockquote>
+<ul>
+<li>主存划分成多个固定/可变尺寸的分区</li>
+<li>一个程序/程序段占用一个分区</li>
+</ul>
+</blockquote>
+</li>
+<li>按照页架复用：<blockquote>
+<ul>
+<li>主存划分成多个固定大小的页架</li>
+<li>一个程序/程序段占用多个页架</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="存储管理的基本模式"><a href="#存储管理的基本模式" class="headerlink" title="存储管理的基本模式"></a>存储管理的基本模式</h4><ul>
+<li>单连续存储管理：一维逻辑地址空间的程序占用一个主存固定分区或可变分区</li>
+<li>段式存储管理：段式二维逻辑地址空间的程序占用多个主存可变分区</li>
+<li>页式存储管理：一维逻辑地址空间的程序占用多个主存页架区</li>
+<li>段页式存储管理：段式二维逻辑地址空间的程序占用多个主存页架区<br><img src="http://q5wlthigx.bkt.clouddn.com/%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E6%A8%A1%E5%BC%8F%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt="存储管理模式示意图"></li>
+</ul>
+<hr>
+<h4 id="地址转换-又称重定位，即把逻辑地址转换成绝对地址"><a href="#地址转换-又称重定位，即把逻辑地址转换成绝对地址" class="headerlink" title="地址转换(又称重定位，即把逻辑地址转换成绝对地址)"></a>地址转换(又称重定位，即把逻辑地址转换成绝对地址)</h4><ul>
+<li>静态重定位：在程序装入内存时由装入程序进行地址转换</li>
+<li>动态重定位：在CPU执行程序时进行地址转换，依赖于硬件</li>
+</ul>
+<p><img src="http://q5wlthigx.bkt.clouddn.com/%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E5%AD%98%E5%82%A8%E4%BF%9D%E6%8A%A4%E7%9A%84%E7%A1%AC%E4%BB%B6%E6%94%AF%E6%92%91.jpg" alt="地址转换存储保护的硬件支撑"><br>(比较：存储保护；相加：重定位)</p>
+<h4 id="可变分区存储管理"><a href="#可变分区存储管理" class="headerlink" title="可变分区存储管理"></a>可变分区存储管理</h4><ul>
+<li>按进程的内存需求来动态划分分区</li>
+<li>创建一个进程时，根据进程所需主存量查看主存中是否有足够的连续空闲空间(若有，则按需要量分割一个分区；若无，则令该进程等待主存资源)</li>
+<li>由于分区大小按照进程实际需要量来确定，因此分区个数是随机变化的</li>
+</ul>
+<h4 id="移动技术-程序浮动技术-用于解决内存外零头"><a href="#移动技术-程序浮动技术-用于解决内存外零头" class="headerlink" title="移动技术(程序浮动技术)用于解决内存外零头"></a>移动技术(程序浮动技术)用于解决内存外零头</h4><h2 id="-3"><a href="#-3" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E7%A7%BB%E5%8A%A8%E6%8A%80%E6%9C%AF%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.jpg" alt="移动技术的工作流程"></h2><h4 id="页式存储管理的基本原理"><a href="#页式存储管理的基本原理" class="headerlink" title="页式存储管理的基本原理"></a>页式存储管理的基本原理</h4><ul>
+<li>分页存储器将主存划分成多个大小相等的页架</li>
+<li>受页架尺寸限制，程序的逻辑地址也分成页</li>
+<li>不同的页可以放在不同页架中，不需要连续</li>
+<li>页表用于维系进程的主存完整性</li>
+</ul>
+<h4 id="页式存储管理中的地址"><a href="#页式存储管理中的地址" class="headerlink" title="页式存储管理中的地址"></a>页式存储管理中的地址</h4><h2 id="-4"><a href="#-4" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E9%A1%B5%E5%BC%8F%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E6%80%9D%E8%B7%AF.jpg" alt="页式存储管理的地址转换思路"></h2><h4 id="页式存储管理的快表"><a href="#页式存储管理的快表" class="headerlink" title="页式存储管理的快表"></a>页式存储管理的快表</h4><blockquote>
+<p>由于每次地址转换必须访问两次主存，降低了存取速度，所以利用Cache存放部分页表，来降低地址转换的代价</p>
+</blockquote>
+<ul>
+<li>快表：存放在高速存储器中的页表部分，快表表项包括(页号，页架号)，这种高速存储器是联想存储器，即按照内容寻址</li>
+</ul>
+<h4 id="多道程序环境下的地址转换"><a href="#多道程序环境下的地址转换" class="headerlink" title="多道程序环境下的地址转换"></a>多道程序环境下的地址转换</h4><h2 id="-5"><a href="#-5" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E5%A4%9A%E9%81%93%E7%A8%8B%E5%BA%8F%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2.jpg" alt="多道程序环境下的地址转换"></h2><h4 id="页式虚拟存储管理-主流存储管理技术-的基本思想"><a href="#页式虚拟存储管理-主流存储管理技术-的基本思想" class="headerlink" title="页式虚拟存储管理(主流存储管理技术)的基本思想"></a>页式虚拟存储管理(主流存储管理技术)的基本思想</h4><blockquote>
+<p>把进程全部页面装入虚拟存储器，执行时先把部分页面装入实际内存，然后，根据执行行为，动态调入不再主存的页，同时进行必要的页面调出，首次只把进程第一页信息装入主存，称为请求页式存储管理</p>
+</blockquote>
+<h4 id="页式虚拟存储管理的页表表项："><a href="#页式虚拟存储管理的页表表项：" class="headerlink" title="页式虚拟存储管理的页表表项："></a>页式虚拟存储管理的页表表项：</h4><blockquote>
+<ul>
+<li>主存块号、虚拟地址、实际地址、主存驻留标志、写回标志、保护标志、引用标志、可移动标志</li>
+</ul>
+</blockquote>
+<h4 id="页式虚拟存储管理的地址转换"><a href="#页式虚拟存储管理的地址转换" class="headerlink" title="页式虚拟存储管理的地址转换"></a>页式虚拟存储管理的地址转换</h4><p><img src="http://q5wlthigx.bkt.clouddn.com/%E9%A1%B5%E5%BC%8F%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A21.jpg" alt="页式虚拟存储管理的地址转换1"><br><img src="http://q5wlthigx.bkt.clouddn.com/%E9%A1%B5%E5%BC%8F%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A22.jpg" alt="页式虚拟存储管理的地址转换2"></p>
+<hr>
+<h4 id="页面调度"><a href="#页面调度" class="headerlink" title="页面调度"></a>页面调度</h4><blockquote>
+<p>当主存空间已满而又需要装入新页时，页式虚拟存储管理必须按照一定的算法吧已在主存的一些页调出去，选择淘汰页的工作称为页面调度，选择淘汰页的算法称为页面调度算法</p>
+</blockquote>
+<ul>
+<li>页面调度算法如果设计不当，会出现刚被淘汰的页面立即又要调入，并如此反复，这种现象称为抖动或颠簸</li>
+</ul>
+<h4 id="多种调度算法"><a href="#多种调度算法" class="headerlink" title="多种调度算法"></a>多种调度算法</h4><ul>
+<li>OPT页面调度算法：当要调入新页面时，首先淘汰以后不再访问的页，然后选择距现在最长时间后再访问的页，该算法称Belady算法，又称最佳算法，且只可模拟，不可实现</li>
+<li>先进先出FIFO页面调度算法：总是淘汰最先调入主存的那一页</li>
+<li>最近最少用LRU页面调度算法：淘汰最近一段时间较久未被访问的那一页，但严格实现的代价大，需要维持特殊队列</li>
+<li>最不常用LFU页面调度算法：淘汰最近一段时间内访问次数较少的页面，基于时间间隔中断，并给每一项设置一个计数器，时间间隔中断发生后，所有计数器清0，每访问页1次就给计数器加1，选择计数值最小的页面淘汰</li>
+<li>时钟CLOCK页面调度算法：采用循环队列机制构造页面队列，形成了一个类似于钟表面的环形表</li>
+</ul>
+<h4 id="内存管理单元MMU：CPU管理虚拟-物理存储器的控制线路，把虚拟地址映射为物理地址，并提供存储保护，必要时确定淘汰页面，其数据结构为反置页表IPT"><a href="#内存管理单元MMU：CPU管理虚拟-物理存储器的控制线路，把虚拟地址映射为物理地址，并提供存储保护，必要时确定淘汰页面，其数据结构为反置页表IPT" class="headerlink" title="内存管理单元MMU：CPU管理虚拟/物理存储器的控制线路，把虚拟地址映射为物理地址，并提供存储保护，必要时确定淘汰页面，其数据结构为反置页表IPT"></a>内存管理单元MMU：CPU管理虚拟/物理存储器的控制线路，把虚拟地址映射为物理地址，并提供存储保护，必要时确定淘汰页面，其数据结构为反置页表IPT</h4><h4 id="反置页表"><a href="#反置页表" class="headerlink" title="反置页表"></a>反置页表</h4><blockquote>
+<p>针对内存中的每个页架建立一个页表，按照块号排序，其表项包括（正在访问该页架的进程标识。页号及特征位、哈希链指针等），用来完成内存页架到访问进程页号的对应</p>
+</blockquote>
+<hr>
+<h4 id="基于反置页表的地址转换过程"><a href="#基于反置页表的地址转换过程" class="headerlink" title="基于反置页表的地址转换过程"></a>基于反置页表的地址转换过程</h4><blockquote>
+<ul>
+<li>MMU通过哈希表把进程标识和虚页号转换成一个哈希值，指向IPT的一个表目，MMU遍历哈希链找到所需进程的虚页号，该项的索引就是页架号，通过拼接位移便可生成物理地址，若未能找到匹配页表项，说明该页不再内存，产生缺页中断</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="-6"><a href="#-6" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E5%8F%8D%E7%BD%AE%E9%A1%B5%E8%A1%A8%E4%B8%8B%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E7%A4%BA%E6%84%8F.jpg" alt="反置页表的地址转换过程"></h2><h4 id="段式存储管理的基本思想"><a href="#段式存储管理的基本思想" class="headerlink" title="段式存储管理的基本思想"></a>段式存储管理的基本思想</h4><blockquote>
+<p>段式存储管理基于可变分区存储管理实现，一个进程要占用多个分区，硬件需要增加一组用户可见的段地址寄存器(代码段、数据段、堆栈段、附加段)，供地址转换使用，存储管理需要增加设置一个段表，每个段占用一个段表项，包括（段始址、段限长、存储保护、可移动、可扩充等标识位）</p>
+</blockquote>
+<h4 id="段式存储管理的地址转换流程"><a href="#段式存储管理的地址转换流程" class="headerlink" title="段式存储管理的地址转换流程"></a>段式存储管理的地址转换流程</h4><h2 id="-7"><a href="#-7" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E6%AE%B5%E5%BC%8F%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E6%B5%81%E7%A8%8B.jpg" alt="段式存储管理的地址转换流程"></h2><h4 id="段式虚拟存储管理的基本思想"><a href="#段式虚拟存储管理的基本思想" class="headerlink" title="段式虚拟存储管理的基本思想"></a>段式虚拟存储管理的基本思想</h4><blockquote>
+<p>把进程的所有分段都存放在辅存中，进程运行时先把当前需要的一段或几段装入主存，在执行过程中访问到不在主存的段时再把它们动态装入，段的掉进调出由OS自动实现</p>
+</blockquote>
+<h4 id="段式虚拟存储管理的地址转换"><a href="#段式虚拟存储管理的地址转换" class="headerlink" title="段式虚拟存储管理的地址转换"></a>段式虚拟存储管理的地址转换</h4><h2 id="-8"><a href="#-8" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E6%AE%B5%E5%BC%8F%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2.jpg" alt="段式虚拟存储管理的地址转换"></h2><h4 id="段页式存储管理的地址转换"><a href="#段页式存储管理的地址转换" class="headerlink" title="段页式存储管理的地址转换"></a>段页式存储管理的地址转换</h4><h2 id="-9"><a href="#-9" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E6%AE%B5%E9%A1%B5%E5%BC%8F%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2.jpg" alt="段页式存储管理的地址转换"></h2><h4 id="段页式虚拟存储管理的地址转换"><a href="#段页式虚拟存储管理的地址转换" class="headerlink" title="段页式虚拟存储管理的地址转换"></a>段页式虚拟存储管理的地址转换</h4><p>（若无该段则需要更新快表）<br><img src="http://q5wlthigx.bkt.clouddn.com/%E6%AE%B5%E9%A1%B5%E5%BC%8F%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2.jpg" alt="段页式虚拟存储管理的地址转换"></p>
 
         </div>
         
