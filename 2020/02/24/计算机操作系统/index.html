@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="http://q5wlthigx.bkt.clouddn.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.jpg">
 <meta property="article:published_time" content="2020-02-24T14:35:00.000Z">
-<meta property="article:modified_time" content="2020-03-04T17:15:32.683Z">
+<meta property="article:modified_time" content="2020-03-08T15:49:25.604Z">
 <meta property="article:author" content="MisterR">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -151,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    an hour 读完 (大约 8119 个字)
+                    an hour 读完 (大约 13401 个字)
                 </span>
                 
                 
@@ -540,6 +540,255 @@
 </blockquote>
 </li>
 </ul>
+<hr>
+<h4 id="树形目录结构"><a href="#树形目录结构" class="headerlink" title="树形目录结构"></a>树形目录结构</h4><blockquote>
+<p>每一级目录可以登记下一级目录，也可以登记文件，形成层次文件目录结构，其通常采用树形目录结构，树分叉为子目录，树叶为文件</p>
+</blockquote>
+<h4 id="文件查找"><a href="#文件查找" class="headerlink" title="文件查找"></a>文件查找</h4><ul>
+<li>绝对路径：从根目录查起</li>
+<li>相对路径：从当前目录查起，用.表示当前目录，用..表示父目录</li>
+</ul>
+<h4 id="活动文件表"><a href="#活动文件表" class="headerlink" title="活动文件表"></a>活动文件表</h4><ul>
+<li>系统为每一个用户进程建立一张活动文件表，当用户使用一个文件之前，先通过”打开”操作，把该文件有关目录信息复制到指定主存区域，有关信息填入活动文件表，以建立用户进程和该文件索引的联系</li>
+<li>当不再使用该文件时，使用”关闭”，切断用户进程和这个文件的联系，同时，若该目录以被修改过，则应更新辅存中对应的文件目录</li>
+</ul>
+<h4 id="文件共享的并发控制"><a href="#文件共享的并发控制" class="headerlink" title="文件共享的并发控制"></a>文件共享的并发控制</h4><blockquote>
+<p>多个进程可能同时存取一个文件，可以一写多读，则操作系统必须提供同步控制机制，但严格禁止多个进程同时写文件</p>
+</blockquote>
+<h4 id="文件的保密措施"><a href="#文件的保密措施" class="headerlink" title="文件的保密措施"></a>文件的保密措施</h4><blockquote>
+<p>文件保密是指文件及其内容不能被未经授权的其他用户窃取</p>
+</blockquote>
+<ul>
+<li>隐蔽文件目录（隐藏文件目录）</li>
+<li>设置口令（设置文件打开的密码）</li>
+<li>使用密码（对文件数据进行硬盘存储上的密匙编译）</li>
+</ul>
+<h4 id="文件的保护"><a href="#文件的保护" class="headerlink" title="文件的保护"></a>文件的保护</h4><blockquote>
+<p>文件保护是指防止文件被破坏，操作系统必须提供文件保护机制，有效实现文件的完整性</p>
+</blockquote>
+<ul>
+<li>文件的副本<blockquote>
+<ul>
+<li>动态多副本技术：在多个介质上维持同一内容的文件，并在更新内容时同时进行，需要增加额外设备和系统负载，一般使用于容量小且较为重要的文件</li>
+<li>转储、备份与恢复：定时把文件复制转储到其他介质上，当某介质上出现故障，复原转储文件</li>
+</ul>
+</blockquote>
+</li>
+<li>基于存取控制矩阵/表的文件保护<blockquote>
+<p> 系统为每个用户设置访问每个文件对象的存取属性，所有用户与所有属性构成一个二维矩阵称存取控制矩阵，将其简化为一张存取控制表，每行包括：用户、文件、存取属性</p>
+<ul>
+<li>存取属性：访问、读、写、执行、创建、删除、授权等</li>
+<li>系统通过查阅核对用户对文件的存取权限对文件进行保护，文件主可以使用GRANT、REVOKE等命令进行授权，系统管理用户(超级用户)等同于文件主权限</li>
+</ul>
+</blockquote>
+</li>
+<li>文件属性(现代操作系统最常用的方式)<blockquote>
+<ul>
+<li>基于存取控制表对用户进行分类，针对每类用户规定文件属性，用户分类：属主、合作者、其他，文件属性可以放在文件目录中，在用户使用文件时，通过核对文件属性，实现保护</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="文件存取的三种方法"><a href="#文件存取的三种方法" class="headerlink" title="文件存取的三种方法"></a>文件存取的三种方法</h4><ul>
+<li>顺序存取：按记录顺序进行读/写操作的存取方法</li>
+<li>直接存取：以任意次序直接读写某个记录</li>
+<li>索引存取：基于索引文件的索引存取方法</li>
+</ul>
+<h4 id="辅存空间的分配方式"><a href="#辅存空间的分配方式" class="headerlink" title="辅存空间的分配方式"></a>辅存空间的分配方式</h4><ul>
+<li>连续分配：存放在辅存空间连续存储区中(连续物理块)<blockquote>
+<p>优点是顺序访问时速度快，管理较为简单，但为了获得足够大的连续存储区，需要定时进行’碎片’整理</p>
+</blockquote>
+</li>
+<li>非连续分配：动态分配给若干扇区或簇<blockquote>
+<p>优点是管理效率高，便于文件动态增长和收缩</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="存储空间空闲块的管理：位示图"><a href="#存储空间空闲块的管理：位示图" class="headerlink" title="存储空间空闲块的管理：位示图"></a>存储空间空闲块的管理：位示图</h4><blockquote>
+<p>使用若干字节构成一张表，表中每一字位对应一个物理块，字位的次序与块的相对次序一致，字位”1”表示相应块已占用，字位”0”表示该块空闲</p>
+</blockquote>
+<ul>
+<li>空闲块成组连接法<blockquote>
+<p>最后一个空闲组(最左边)的”0”表示无空闲块，每一组(最后除外)的第一个块，表示空闲块总数，后面为空闲块<br><img src="http://q5wlthigx.bkt.clouddn.com/%E7%A9%BA%E9%97%B2%E5%9D%97%E6%88%90%E7%BB%84%E8%BF%9E%E6%8E%A5%E6%B3%95%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt="空闲块成组连接法示意图"></p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<p><img src="http://q5wlthigx.bkt.clouddn.com/%E7%A9%BA%E9%97%B2%E5%9D%97%E6%88%90%E7%BB%84%E8%BF%9E%E6%8E%A5%E6%B3%95%E7%AE%97%E6%B3%95.jpg" alt="空闲块成组连接法算法"><br>(空闲块成组连接法的具体讲解:<a href="https://blog.csdn.net/ajay666/article/details/73569654">https://blog.csdn.net/ajay666/article/details/73569654</a>)</p>
+<hr>
+<h4 id="文件系统的实现层次"><a href="#文件系统的实现层次" class="headerlink" title="文件系统的实现层次"></a>文件系统的实现层次</h4><h2 id="-14"><a href="#-14" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%B1%82%E6%AC%A1.png" alt="文件系统的实现层次"></h2><hr>
+<h2 id="emsp"><a href="#emsp" class="headerlink" title="&emsp;"></a>&emsp;</h2><h4 id="顺序程序设计"><a href="#顺序程序设计" class="headerlink" title="顺序程序设计"></a>顺序程序设计</h4><ul>
+<li>内部顺序性：程序是实现算法的操作指令序列，每个程序在处理器上执行是严格有序的，这称为程序执行的内部顺序性</li>
+<li>外部顺序性：把一个具体问题的求解过程设计成一个程序或者严格顺序执行的程序序列，这称为程序执行的外部顺序性</li>
+</ul>
+<h4 id="顺序程序设计的特性"><a href="#顺序程序设计的特性" class="headerlink" title="顺序程序设计的特性"></a>顺序程序设计的特性</h4><ul>
+<li>程序执行的顺序性：程序指令执行是严格按序的</li>
+<li>计算环境的封闭性：程序运行时如同独占受操作系统保护的资源</li>
+<li>计算结果的确定性：程序执行结果与执行速度和执行时段无关</li>
+<li>计算过程的可再见性：程序对相同数据集的执行轨迹是确定的</li>
+</ul>
+<h4 id="进程的并发执行"><a href="#进程的并发执行" class="headerlink" title="进程的并发执行"></a>进程的并发执行</h4><blockquote>
+<p>多道程序设计让多个程序同时进入内存去竞争处理器以获得运行机会，OS允许计算机系统在一个时间段内存在多个正在运行的进程</p>
+</blockquote>
+<h4 id="并发程序设计的特性"><a href="#并发程序设计的特性" class="headerlink" title="并发程序设计的特性"></a>并发程序设计的特性</h4><ul>
+<li>并行性：多个进程在多道程序系统中并发执行或者在多处理器系统中并行执行，提高了计算效率</li>
+<li>共享性：多个进程共享软件资源</li>
+<li>交往性：多个进程并发执行时存在制约，增加了程序设计的难度，要求并发的合理，保证程序运行正确</li>
+</ul>
+<h4 id="无关与交往的并发进程"><a href="#无关与交往的并发进程" class="headerlink" title="无关与交往的并发进程"></a>无关与交往的并发进程</h4><ul>
+<li>无关的并发进程：一组并发进程分别在不同的变量集合上运行，一个进程的执行与其他并发进程的进展无关</li>
+<li>交往的并发进程：一组并发进程共享某些变量，一个进程的执行可能影响其他并发进程的结果</li>
+</ul>
+<h4 id="进程互斥与进程同步"><a href="#进程互斥与进程同步" class="headerlink" title="进程互斥与进程同步"></a>进程互斥与进程同步</h4><ul>
+<li>进程互斥：并发程序之间因相互争夺独占性资源而产生的竞争制约关系</li>
+<li>进程同步：并发进程之间为完成共同任务基于某个条件来协调执行先后关系而产生的协作制约关系</li>
+</ul>
+<h4 id="互斥与临界区"><a href="#互斥与临界区" class="headerlink" title="互斥与临界区"></a>互斥与临界区</h4><ul>
+<li>临界资源：互斥共享变量所代表的资源，即一次只能被一个进程使用的资源</li>
+<li>临界区是指并发进程中与互斥共享变量相关的程序段<blockquote>
+<ul>
+<li>确定临界资源: shared &lt; variable&gt;；确定临界区: region &lt; variable&gt; do &lt; statement_list&gt;</li>
+<li>两个进程的临界区有相同的临界资源，就是相关的临界区，进程必须互斥进入</li>
+<li>一次至多允许一个进程停留在相关的临界区内；一个进程不能无限止地停留在临界区内；一个进程不能无限止地等待进入临界区</li>
+</ul>
+</blockquote>
+</li>
+<li>如果两个进程同时停留在相关的临界区内，就会出现于时间相关的错误</li>
+<li>临界区允许嵌套使用，但必须保证临界区的严格次序性</li>
+</ul>
+<h4 id="临界区管理实现"><a href="#临界区管理实现" class="headerlink" title="临界区管理实现"></a>临界区管理实现</h4><p><img src="http://q5wlthigx.bkt.clouddn.com/%E4%B8%B4%E7%95%8C%E5%8C%BA%E7%AE%A1%E7%90%86%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%B0%9D%E8%AF%951.jpg" alt="临界区管理实现的尝试1"></p>
+<ul>
+<li>第一次尝试：默认两个进程都不在临界区，如果在进程一执行判断进程二是否在临界区的语句结束之后中断，继而执行进程二，则进程二能进行判断，加锁操作后进入临界区，这时中断进程二，再执行进程一，因为在中断之前进程一已经判断进程二没有在临界区内，那么进程一直接加锁并进入临界区，这时就出现了两个进程同时进入临界区</li>
+</ul>
+<hr>
+<p><img src="http://q5wlthigx.bkt.clouddn.com/%E4%B8%B4%E7%95%8C%E5%8C%BA%E7%AE%A1%E7%90%86%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%B0%9D%E8%AF%952.jpg" alt="临界区管理实现的尝试2"></p>
+<ul>
+<li><p>第二次尝试：如果进程一在执行加锁之后中断，继而执行进程二，那么进程二会进行加锁之后判断进程一已经加锁，那么进程二进入等待，继续进程一，判断进程二也加了锁，进入等待，那么就出现了死锁问题</p>
+</li>
+<li><p>解决办法：把测试锁和建立锁两条指令综合成一条测试并建立锁指令，使测试与建立之间不能中断，就解决了这个问题<br><img src="http://q5wlthigx.bkt.clouddn.com/%E6%B5%8B%E8%AF%95%E5%B9%B6%E5%BB%BA%E7%AB%8B%E6%8C%87%E4%BB%A4.jpg" alt="测试并建立指令"></p>
+</li>
+</ul>
+<hr>
+<h2 id="-15"><a href="#-15" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E5%AF%B9%E6%8D%A2%E6%8C%87%E4%BB%A4.jpg" alt="对换指令"></h2><blockquote>
+<p>但上述两种方法的实现均是忙式等待，会一直占用CPU，效率低下</p>
+</blockquote>
+<ul>
+<li>为解决这个问题的办法是在进出临界区时开关中断，这样临界区执行就不会中断，执行就有原子性，操作系统原语就采用这种实现思路，但是临界区的指令长度应该短小精悍，这样才能保证系统效率，所以不建议用户程序使用这种方法</li>
+</ul>
+<hr>
+<h4 id="记录型信号量的定义"><a href="#记录型信号量的定义" class="headerlink" title="记录型信号量的定义"></a>记录型信号量的定义</h4><ul>
+<li>记录型信号量：一种带数值的软资源<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typedef struct semaphore&#123;</span><br><span class="line">int value;			&#x2F;&#x2F;信号量值</span><br><span class="line">struct pcb *list;		&#x2F;&#x2F;信号量等待进程队列指针</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>每个信号量建立一个等待进程队列，且相关一个整数值<blockquote>
+<ul>
+<li>正值表示资源可复用次数</li>
+<li>0值表示无资源且无进程等待</li>
+<li>负值表示等待队列中进程个数</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="PV操作解决进程互斥问题框架"><a href="#PV操作解决进程互斥问题框架" class="headerlink" title="PV操作解决进程互斥问题框架"></a>PV操作解决进程互斥问题框架</h4><p><img src="http://q5wlthigx.bkt.clouddn.com/PV%E6%93%8D%E4%BD%9C%E8%A7%A3%E5%86%B3%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E9%97%AE%E9%A2%98%E6%A1%86%E6%9E%B6.jpg" alt="PV操作解决进程互斥问题框架"><br>在PV操作中P和V必须是一一对应的，相当于加锁与释放锁</p>
+<hr>
+<p><img src="http://q5wlthigx.bkt.clouddn.com/PV%E6%93%8D%E4%BD%9C%E8%A7%A3%E5%86%B3%E6%9C%BA%E7%A5%A8%E9%97%AE%E9%A2%98.jpg" alt="PV操作解决机票问题"></p>
+<h4 id="PV操作解决进程同步问题"><a href="#PV操作解决进程同步问题" class="headerlink" title="PV操作解决进程同步问题"></a>PV操作解决进程同步问题</h4><p><img src="http://q5wlthigx.bkt.clouddn.com/PV%E6%93%8D%E4%BD%9C%E8%A7%A3%E5%86%B3%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98.jpg" alt="PV操作解决进程同步问题"><br>（思路与互斥问题一样）</p>
+<hr>
+<h4 id="PV操作解决多生产者多消费者多缓冲区问题"><a href="#PV操作解决多生产者多消费者多缓冲区问题" class="headerlink" title="PV操作解决多生产者多消费者多缓冲区问题"></a>PV操作解决多生产者多消费者多缓冲区问题</h4><h2 id="-16"><a href="#-16" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/PV%E6%93%8D%E4%BD%9C%E8%A7%A3%E5%86%B3%E5%A4%9A%E7%94%9F%E4%BA%A7%E8%80%85%E5%A4%9A%E6%B6%88%E8%B4%B9%E8%80%85%E5%A4%9A%E7%BC%93%E5%86%B2%E5%8C%BA%E9%97%AE%E9%A2%98.jpg" alt="PV操作解决多生产者多消费者多缓冲区问题"></h2><h4 id="PV操作解决苹果橘子问题"><a href="#PV操作解决苹果橘子问题" class="headerlink" title="PV操作解决苹果橘子问题"></a>PV操作解决苹果橘子问题</h4><p><img src="http://q5wlthigx.bkt.clouddn.com/PV%E6%93%8D%E4%BD%9C%E8%A7%A3%E5%86%B3%E8%8B%B9%E6%9E%9C%E6%A9%98%E5%AD%90%E9%97%AE%E9%A2%98.jpg" alt="PV操作解决苹果橘子问题"></p>
+<blockquote>
+<p>如果盘子允许放入多个水果，那么则必须引入一个互斥条件，对盘子进行加锁，但该互斥条件的加锁P操作必须在同步P操作之后，因为我们设想，加入盘子已满，这是再往盘里加水果，由于先进行盘子加锁，然后申请盘子空位，但无法申请，则该进程挂起等待，但由于盘子已加锁，无法对盘子进行操作，则死锁</p>
+</blockquote>
+<ul>
+<li>水果问题：<a href="https://blog.csdn.net/Yun_Ge/article/details/89043527">https://blog.csdn.net/Yun_Ge/article/details/89043527</a></li>
+<li>死锁问题：<a href="https://blog.csdn.net/hansionz/article/details/84675536">https://blog.csdn.net/hansionz/article/details/84675536</a></li>
+</ul>
+<hr>
+<h4 id="管程概念"><a href="#管程概念" class="headerlink" title="管程概念"></a>管程概念</h4><blockquote>
+<p>管程是由若干公共变量及其说明和所有访问这些变量的过程所组成，管程把分散在各个进程中互斥地访问公共变量的那些临界区集中起来管理，管程的局部变量只能有该管程的过程存取，进程只能互斥地调用管程中的过程</p>
+</blockquote>
+<h4 id="管程的基本形式"><a href="#管程的基本形式" class="headerlink" title="管程的基本形式"></a>管程的基本形式</h4><p><img src="http://q5wlthigx.bkt.clouddn.com/%E7%AE%A1%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%BD%A2%E5%BC%8F.jpg" alt="管程的基本形式"></p>
+<h4 id="管程的条件变量"><a href="#管程的条件变量" class="headerlink" title="管程的条件变量"></a>管程的条件变量</h4><blockquote>
+<p>当调用管程过程的进程无法运行时，用于阻塞进程的信号量</p>
+</blockquote>
+<ul>
+<li>同步原语wait：当一个管程过程发现无法继续时，它在某些条件变量上执行wait，这个动作引起调用进程阻塞</li>
+<li>同步原语signal：用于释放在条件变量上阻塞的进程<blockquote>
+<p>当使用signal释放一个等待进程时，可能出现两个进程同时停留在管程内，解决方法：①执行signal的进程等待，知道被释放进程退出管程或等待另一个条件；②被释放进程等待，直到执行signal的进程退出管程或者等待另一个条件</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="管程的执行模型"><a href="#管程的执行模型" class="headerlink" title="管程的执行模型"></a>管程的执行模型</h4><h2 id="-17"><a href="#-17" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E7%AE%A1%E7%A8%8B%E7%9A%84%E6%89%A7%E8%A1%8C%E6%A8%A1%E5%9E%8B.jpg" alt="管程的执行模型"></h2><h4 id="霍尔管程"><a href="#霍尔管程" class="headerlink" title="霍尔管程"></a>霍尔管程</h4><ul>
+<li>实现方法：使用signal释放一个等待进程时，霍尔管程让执行signal的进程等待，直到被释放进程退出管程或等待另一个条件<blockquote>
+<p>霍尔管程基于PV操作原语实现，所以wait和signal可以是程序过程，可以用语言实现霍尔管程</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mutex : semaphore  	&#x2F;&#x2F;调用管程过程前使用的互斥信号量</span><br><span class="line">next : semaphore  		&#x2F;&#x2F;发出signal的进程挂起自己的信号量</span><br><span class="line">next_count : integer  	&#x2F;&#x2F;在next上等待的进程数</span><br><span class="line">x_sem : semaphore  	&#x2F;&#x2F;与资源相关的信号量</span><br><span class="line">x_count : integer 		&#x2F;&#x2F;在x_sem上等待的进程数</span><br></pre></td></tr></table></figure>
+<h2 id="-18"><a href="#-18" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E9%9C%8D%E5%B0%94%E7%AE%A1%E7%A8%8B%E7%9A%84wait%E8%BF%87%E7%A8%8B.jpg" alt="霍尔管程的wait过程"></h2><p><img src="http://q5wlthigx.bkt.clouddn.com/%E9%9C%8D%E5%B0%94%E7%AE%A1%E7%A8%8B%E7%9A%84signal%E8%BF%87%E7%A8%8B.jpg" alt="霍尔管程的signal过程"></p>
+<hr>
+<h4 id="霍尔方法解决读者写者问题"><a href="#霍尔方法解决读者写者问题" class="headerlink" title="霍尔方法解决读者写者问题"></a>霍尔方法解决读者写者问题</h4><p><img src="http://q5wlthigx.bkt.clouddn.com/%E9%9C%8D%E5%B0%94%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3%E8%AF%BB%E8%80%85%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98.jpg" alt="霍尔方法解决读者写者问题"></p>
+<hr>
+<h4 id="进程通信的概念"><a href="#进程通信的概念" class="headerlink" title="进程通信的概念"></a>进程通信的概念</h4><blockquote>
+<p>进程有时需要交换更多的信息，如把数据传送给另一个进程，从而引进高级通信方式——进程通信机制，实现进程间用信件来交换信息，进程通信扩充了并发进程的数据共享</p>
+</blockquote>
+<h4 id="进程通信方式"><a href="#进程通信方式" class="headerlink" title="进程通信方式"></a>进程通信方式</h4><ul>
+<li>进程直接通信：发送或接收信件的进程指出信件发给谁或从谁那里接收信件</li>
+<li>进程间接通信：发送或者接收信件通过一个信箱来进行，该信箱有唯一标识符<blockquote>
+<p>间接通信的信箱：信箱是存放信件的存储区域，每个信箱可以分成信箱特征和信箱体两部分</p>
+<ul>
+<li>信箱特征指出信箱容量、信件格式、指针等</li>
+<li>信箱体用来存放信件，信箱体分成若干个区，每个区可容纳一封信</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="基于流的进程通信"><a href="#基于流的进程通信" class="headerlink" title="基于流的进程通信"></a>基于流的进程通信</h4><blockquote>
+<p>多个进程使用一个共享的消息缓冲区(可称为管道、多路转接器、套接字)</p>
+<ul>
+<li>一些进程往消息缓冲区中写入字符流(send/write)</li>
+<li>一些进程从消息缓冲区中读出字符流(receive/read)</li>
+</ul>
+</blockquote>
+<ul>
+<li>基于字符流的进程通信规约<br><img src="http://q5wlthigx.bkt.clouddn.com/%E5%9F%BA%E4%BA%8E%E5%AD%97%E7%AC%A6%E6%B5%81%E7%9A%84%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E8%A7%84%E7%BA%A6.jpg" alt="基于字符流的进程通信规约"></li>
+</ul>
+<hr>
+<h4 id="基于RPC-XDR的高级通信"><a href="#基于RPC-XDR的高级通信" class="headerlink" title="基于RPC/XDR的高级通信"></a>基于RPC/XDR的高级通信</h4><blockquote>
+<p>采用客户/服务器计算模式，服务器进程提供一系列过程/服务，供客户进程调用，客户进程通过调用服务器进程提供的过程/服务获得服务<br>考虑到客户计算机和服务器计算机的硬件异构，外部数据表示XDR被引入来转换每台计算机的特殊数据格式为标准数据格式</p>
+</blockquote>
+<ul>
+<li>基于RPC/XDR的高级通信规约<br><img src="http://q5wlthigx.bkt.clouddn.com/%E5%9F%BA%E4%BA%8ERPC%E5%92%8CXDR%E7%9A%84%E9%AB%98%E7%BA%A7%E9%80%9A%E4%BF%A1%E8%A7%84%E7%BA%A6.jpg" alt="基于RPC/XDR的高级通信规约"></li>
+</ul>
+<hr>
+<h4 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h4><ul>
+<li>死锁的定义：在一组进程中，每一个进程都在等待被另一个进程所占有的。不能抢占的资源</li>
+<li>死锁的产生：允许多个进程并发执行共享系统资源时，系统必须提供同步机制和进程通信机制，而对这种机制使用不当，可能会出现进程永远被阻塞的现象</li>
+</ul>
+<h4 id="死锁产生的四个必要条件"><a href="#死锁产生的四个必要条件" class="headerlink" title="死锁产生的四个必要条件"></a>死锁产生的四个必要条件</h4><ul>
+<li>互斥条件：进程应互斥使用资源，任一时刻一个资源仅为一个进程独占</li>
+<li>占有和等待条件：一个进程请求资源得不到满足而等待时，不释放已占有的资源</li>
+<li>不剥夺条件：任一进程不能从另一进程那里抢夺资源</li>
+<li>循环等待条件：存在一个循环等待链，每一个进程分别等待它前一个进程所持有的资源</li>
+</ul>
+<h4 id="死锁的防止"><a href="#死锁的防止" class="headerlink" title="死锁的防止"></a>死锁的防止</h4><blockquote>
+<p>破坏四个必要条件之一</p>
+</blockquote>
+<ul>
+<li>层次分配：这种分配阻止第四个条件出现，其资源被分成多个层次，一个进程得到某一层的一个资源后，它只能在申请较高层的资源，当一个进程要释放某一层的一个资源时，必须先释放所占用的较高层的资源，当一个进程获得某一层的一个资源后，它想再申请该层中的另一个资源，就必须先释放该层中已占的资源</li>
+</ul>
+<h4 id="死锁的避免"><a href="#死锁的避免" class="headerlink" title="死锁的避免"></a>死锁的避免</h4><blockquote>
+<p>当不能防止死锁的产生时，只需要为申请者分配资源前先测试系统状态，若把资源分配给申请者会产生死锁的话，则拒绝分配，否则接收申请，分配资源</p>
+</blockquote>
+<ul>
+<li>银行家算法：借钱给有偿还能力的客户，系统首先检查申请者对资源的最大需求量，如果现存的资源可以满足它的最大需求量时，就满足当前申请，(当进程得到需求资源则可以结束进程还回资源)</li>
+</ul>
+<h4 id="死锁的检测"><a href="#死锁的检测" class="headerlink" title="死锁的检测"></a>死锁的检测</h4><blockquote>
+<p>可设置两张表格来记录进程使用资源的情况，等待资源表记录每个被阻塞进程等待的资源，占用资源表记录每个进程占有的资源，进程申请资源时，先查该资源是否为其他进程所占用；若资源空闲，则把该资源分配个申请者且登入占用资源表；否则，则登入进程等待资源表<br>利用warshall的传递闭包算法检测是否有死锁发生，由于死锁产生是小概率事件，则可采用重新启动进程执行的办法</p>
+<ul>
+<li>全部卷入死锁从头开始启动，但这样的代价很大</li>
+<li>在进程执行过程中地市设置校验点，从校验点开始重执行</li>
+<li>中止一个卷入死锁的进程，以后重执行</li>
+</ul>
+</blockquote>
 
         </div>
         
