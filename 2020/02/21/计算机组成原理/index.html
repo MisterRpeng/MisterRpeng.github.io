@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="http://q5wlthigx.bkt.clouddn.com/%E7%BB%93%E6%9E%84%E5%9B%BE.png">
 <meta property="article:published_time" content="2020-02-21T06:47:00.000Z">
-<meta property="article:modified_time" content="2020-02-22T13:44:53.804Z">
+<meta property="article:modified_time" content="2020-03-21T09:17:44.378Z">
 <meta property="article:author" content="MisterR">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -151,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8 minutes 读完 (大约 1231 个字)
+                    7 minutes 读完 (大约 1098 个字)
                 </span>
                 
                 
@@ -200,9 +200,9 @@
 </blockquote>
 <hr>
 <h3 id="现代计算机硬件组成即冯诺依曼计算机："><a href="#现代计算机硬件组成即冯诺依曼计算机：" class="headerlink" title="现代计算机硬件组成即冯诺依曼计算机："></a>现代计算机硬件组成即冯诺依曼计算机：</h3><hr>
-<p><img src="http://q5wlthigx.bkt.clouddn.com/%E8%AE%A1%E7%AE%97%E6%9C%BA.png" alt="计算机"></p>
+<p><img src="https://s1.ax1x.com/2020/03/21/8WXtET.png" alt="计算机"></p>
 <hr>
-<h3 id="关于主机的内置结构-例子模型"><a href="#关于主机的内置结构-例子模型" class="headerlink" title="关于主机的内置结构(例子模型)"></a>关于主机的内置结构(例子模型)</h3><h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="主机"></h2><h4 id="在CPU中分为运算器和控制器"><a href="#在CPU中分为运算器和控制器" class="headerlink" title="在CPU中分为运算器和控制器"></a>在CPU中分为运算器和控制器</h4><blockquote>
+<h3 id="关于主机的内置结构-例子模型"><a href="#关于主机的内置结构-例子模型" class="headerlink" title="关于主机的内置结构(例子模型)"></a>关于主机的内置结构(例子模型)</h3><h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://s1.ax1x.com/2020/03/21/8WXw8J.png" alt="主机"></h2><h4 id="在CPU中分为运算器和控制器"><a href="#在CPU中分为运算器和控制器" class="headerlink" title="在CPU中分为运算器和控制器"></a>在CPU中分为运算器和控制器</h4><blockquote>
 <p>ACC，X，MQ为CPU中的存储单元，ALU为算数逻辑单元，CU为控制单元，PC为程序计数器，保存当前欲执行指令的地址，并触发后指向下一个指令的地址，IR为指令寄存器，为保存当前欲执行的指令。</p>
 </blockquote>
 <h4 id="在主存储器中分为存储体M，MAR，MDR"><a href="#在主存储器中分为存储体M，MAR，MDR" class="headerlink" title="在主存储器中分为存储体M，MAR，MDR"></a>在主存储器中分为存储体M，MAR，MDR</h4><blockquote>
@@ -210,16 +210,16 @@
 </blockquote>
 <hr>
 <h4 id="指令格式：操作码-地址码"><a href="#指令格式：操作码-地址码" class="headerlink" title="指令格式：操作码+地址码"></a>指令格式：操作码+地址码</h4><h4 id="控制器执行一条指令的步骤包括：取指令，分析指令，执行指令"><a href="#控制器执行一条指令的步骤包括：取指令，分析指令，执行指令" class="headerlink" title="控制器执行一条指令的步骤包括：取指令，分析指令，执行指令"></a>控制器执行一条指令的步骤包括：取指令，分析指令，执行指令</h4><hr>
-<h3 id="根据结构图来详细的描述一下一条指令是如何在主机内运行的"><a href="#根据结构图来详细的描述一下一条指令是如何在主机内运行的" class="headerlink" title="根据结构图来详细的描述一下一条指令是如何在主机内运行的"></a>根据结构图来详细的描述一下一条指令是如何在主机内运行的</h3><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E5%8F%96%E6%95%B0%E6%8C%87%E4%BB%A4.png" alt="取数指令"></h2><blockquote>
+<h3 id="根据结构图来详细的描述一下一条指令是如何在主机内运行的"><a href="#根据结构图来详细的描述一下一条指令是如何在主机内运行的" class="headerlink" title="根据结构图来详细的描述一下一条指令是如何在主机内运行的"></a>根据结构图来详细的描述一下一条指令是如何在主机内运行的</h3><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="https://s1.ax1x.com/2020/03/21/8f2Wr9.png" alt="取数指令"></h2><blockquote>
 <p>取数指令：PC中存放有取数指令的地址，第一步PC把改指令地址发送给MAR由其拿着地址去存储体中找到地址对应的指令数据，存储体把指令数据发送给MDR由其把指令发送到CPU中的指令寄存器IR，IR得到指令后把指令发送给控制单元CU，经CU分析处理把内存单元ACC的地址和指令反馈给IR，由IR把内存单元地址发送给MAR，再发送给存储体，在控制器的控制下从存储体从把数发送给MDR，由其发送给内存单元ACC。</p>
 </blockquote>
 <hr>
-<p><img src="http://q5wlthigx.bkt.clouddn.com/%E5%AD%98%E6%95%B0%E6%8C%87%E4%BB%A4.png" alt="存数指令"></p>
+<p><img src="https://s1.ax1x.com/2020/03/20/82bXcV.png" alt="存数指令"></p>
 <blockquote>
 <p>根据上例可自行推出。</p>
 </blockquote>
 <hr>
-<h3 id="根据上诉可延展例子"><a href="#根据上诉可延展例子" class="headerlink" title="根据上诉可延展例子"></a>根据上诉可延展例子</h3><p><img src="http://q5wlthigx.bkt.clouddn.com/%E7%BC%96%E7%A8%8B%E4%B8%BE%E4%BE%8B.png" alt="编程举例"><br><img src="http://q5wlthigx.bkt.clouddn.com/%E4%B8%BE%E4%BE%8B%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B.png" alt="以指令的大致过程"></p>
+<h3 id="根据上诉可延展例子"><a href="#根据上诉可延展例子" class="headerlink" title="根据上诉可延展例子"></a>根据上诉可延展例子</h3><p><img src="https://s1.ax1x.com/2020/03/20/82bf6f.png" alt="编程举例"><br><img src="https://s1.ax1x.com/2020/03/21/8WXrK1.png" alt="以指令的大致过程"></p>
 <blockquote>
 <p>具体过程不再赘述。</p>
 </blockquote>
@@ -228,7 +228,7 @@
 <h3 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h3><blockquote>
 <p>总线：总线是连接各个部件的信息传输线，是各个部件共享的传输介质。</p>
 </blockquote>
-<h3 id="总线的分类"><a href="#总线的分类" class="headerlink" title="总线的分类:"></a>总线的分类:</h3><p><img src="http://q5wlthigx.bkt.clouddn.com/%E6%80%BB%E7%BA%BF.jpg" alt="总线分类"></p>
+<h3 id="总线的分类"><a href="#总线的分类" class="headerlink" title="总线的分类:"></a>总线的分类:</h3><p><img src="https://s1.ax1x.com/2020/03/21/8f2vVI.jpg" alt="总线分类"></p>
 <blockquote>
 <ul>
 <li>片内总线：芯片内部的总线</li>
@@ -245,8 +245,8 @@
 </ol>
 </blockquote>
 <hr>
-<h3 id="总线标准"><a href="#总线标准" class="headerlink" title="总线标准:"></a>总线标准:</h3><h2 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="http://q5wlthigx.bkt.clouddn.com/%E6%80%BB%E7%BA%BF%E6%A0%87%E5%87%86.jpg" alt="总线标准"></h2><hr>
-<h3 id="总线结构"><a href="#总线结构" class="headerlink" title="总线结构:"></a>总线结构:</h3><p><img src="http://q5wlthigx.bkt.clouddn.com/%E5%8D%95%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84.png" alt="单总线结构"><br><img src="http://q5wlthigx.bkt.clouddn.com/%E5%8F%8C%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84.png" alt="双总线结构"><br><img src="http://q5wlthigx.bkt.clouddn.com/%E4%B8%89%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84.png" alt="三总线结构1"><br><img src="http://q5wlthigx.bkt.clouddn.com/%E4%B8%89%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%841.png" alt="三总线结构2"><br><img src="http://q5wlthigx.bkt.clouddn.com/%E5%9B%9B%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84.png" alt="四总线结构"></p>
+<h3 id="总线标准"><a href="#总线标准" class="headerlink" title="总线标准:"></a>总线标准:</h3><h2 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="https://s1.ax1x.com/2020/03/21/8f2xat.jpg" alt="总线标准"></h2><hr>
+<h3 id="总线结构"><a href="#总线结构" class="headerlink" title="总线结构:"></a>总线结构:</h3><p><img src="https://s1.ax1x.com/2020/03/20/82bzBF.png" alt="单总线结构"><br><img src="https://s1.ax1x.com/2020/03/21/8fgcnA.png" alt="双总线结构"><br><img src="https://s1.ax1x.com/2020/03/21/8WXort.png" alt="三总线结构1"><br><img src="https://s1.ax1x.com/2020/03/21/8WXTqP.png" alt="三总线结构2"><br><img src="https://s1.ax1x.com/2020/03/21/8fgZOs.png" alt="四总线结构"></p>
 <h3 id="总线判优控制"><a href="#总线判优控制" class="headerlink" title="总线判优控制:"></a>总线判优控制:</h3><h4 id="①集中式-链式查询、计数器定时查询、独立请求方式"><a href="#①集中式-链式查询、计数器定时查询、独立请求方式" class="headerlink" title="①集中式{链式查询、计数器定时查询、独立请求方式}"></a>①集中式{链式查询、计数器定时查询、独立请求方式}</h4><h4 id="②分布式"><a href="#②分布式" class="headerlink" title="②分布式"></a>②分布式</h4><h4 id="总线通信控制：目的-gt-gt-解决通信双方协调配合问题"><a href="#总线通信控制：目的-gt-gt-解决通信双方协调配合问题" class="headerlink" title="总线通信控制：目的&gt;&gt;解决通信双方协调配合问题"></a>总线通信控制：目的&gt;&gt;解决通信双方协调配合问题</h4><h3 id="总线通信方式"><a href="#总线通信方式" class="headerlink" title="总线通信方式:"></a>总线通信方式:</h3><blockquote>
 <ul>
 <li>同步通信：由统一时标控制数据传送</li>
@@ -367,7 +367,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            4
+                            5
                         </p>
                     </a>
                 </div>
@@ -493,7 +493,7 @@
                 <span class="level-item">计算机基础</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li>
             </ul>
@@ -512,9 +512,28 @@
         
         <article class="media">
             
+            <a href="/2020/03/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://s1.ax1x.com/2020/03/21/8WXOPg.jpg" alt="数据结构">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-10T16:20:00.000Z">2020-03-11</time></div>
+                    <a href="/2020/03/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="title has-link-black-ter is-size-6 has-text-weight-normal">数据结构</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/02/27/%E5%AF%B9%E8%82%BA%E7%82%8E%E7%96%AB%E6%83%85%E7%9A%84%E6%80%9D%E8%80%83/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://q5wlthigx.bkt.clouddn.com/%E9%BB%98%E8%AE%A4.jpg" alt="对肺炎疫情的思考">
+                    <img class="thumbnail" src="https://s1.ax1x.com/2020/03/21/8WXh2d.jpg" alt="对肺炎疫情的思考">
                 </p>
             </a>
             
@@ -533,7 +552,7 @@
             
             <a href="/2020/02/27/%E5%AF%B9%E5%AE%9E%E8%B7%B5%E8%AE%BA%E7%9A%84%E8%AF%BB%E5%90%8E%E6%84%9F/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://q5wlthigx.bkt.clouddn.com/%E9%BB%98%E8%AE%A4.jpg" alt="关《实践论》有感">
+                    <img class="thumbnail" src="https://s1.ax1x.com/2020/03/21/8WXh2d.jpg" alt="关《实践论》有感">
                 </p>
             </a>
             
@@ -552,7 +571,7 @@
             
             <a href="/2020/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://q5wlthigx.bkt.clouddn.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.jpg" alt="计算机操作系统">
+                    <img class="thumbnail" src="https://s1.ax1x.com/2020/03/21/8WXNUU.jpg" alt="计算机操作系统">
                 </p>
             </a>
             
@@ -598,6 +617,17 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2020/02/">
                 <span class="level-start">
                     <span class="level-item">February 2020</span>
@@ -631,7 +661,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%E7%AC%94%E8%AE%B0/">
                         <span class="tag">笔记</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -659,9 +689,28 @@
         
         <article class="media">
             
+            <a href="/2020/03/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://s1.ax1x.com/2020/03/21/8WXOPg.jpg" alt="数据结构">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-10T16:20:00.000Z">2020-03-11</time></div>
+                    <a href="/2020/03/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="title has-link-black-ter is-size-6 has-text-weight-normal">数据结构</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/02/27/%E5%AF%B9%E8%82%BA%E7%82%8E%E7%96%AB%E6%83%85%E7%9A%84%E6%80%9D%E8%80%83/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://q5wlthigx.bkt.clouddn.com/%E9%BB%98%E8%AE%A4.jpg" alt="对肺炎疫情的思考">
+                    <img class="thumbnail" src="https://s1.ax1x.com/2020/03/21/8WXh2d.jpg" alt="对肺炎疫情的思考">
                 </p>
             </a>
             
@@ -680,7 +729,7 @@
             
             <a href="/2020/02/27/%E5%AF%B9%E5%AE%9E%E8%B7%B5%E8%AE%BA%E7%9A%84%E8%AF%BB%E5%90%8E%E6%84%9F/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://q5wlthigx.bkt.clouddn.com/%E9%BB%98%E8%AE%A4.jpg" alt="关《实践论》有感">
+                    <img class="thumbnail" src="https://s1.ax1x.com/2020/03/21/8WXh2d.jpg" alt="关《实践论》有感">
                 </p>
             </a>
             
@@ -699,7 +748,7 @@
             
             <a href="/2020/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://q5wlthigx.bkt.clouddn.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.jpg" alt="计算机操作系统">
+                    <img class="thumbnail" src="https://s1.ax1x.com/2020/03/21/8WXNUU.jpg" alt="计算机操作系统">
                 </p>
             </a>
             
@@ -745,6 +794,17 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2020/02/">
                 <span class="level-start">
                     <span class="level-item">February 2020</span>
@@ -778,7 +838,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%E7%AC%94%E8%AE%B0/">
                         <span class="tag">笔记</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
